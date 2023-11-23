@@ -14,3 +14,7 @@ config/name="Un Multplayr Fun Probably"
 run/main_scene="res://node_2d.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/mode=3

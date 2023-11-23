@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnrjtkcgcxi30"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_d3mxs"]
+frequency = 1.0
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k82ci"]
+width = 3
+height = 1
+noise = SubResource("FastNoiseLite_d3mxs")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(48, 16)
+scale = Vector2(32, 32)
+texture = SubResource("NoiseTexture2D_k82ci")
+
+[node name="1 0" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 0, 32, 16, 16)
+
+[node name="Mesh" type="Polygon2D" parent="1 0"]
+color = Color(1, 0, 0, 0.501961)
+polygon = PackedVector2Array(0, 0, 0, 32, 16, 16)
+
+[node name="2 0" type="CollisionPolygon2D" parent="."]
+position = Vector2(32, 0)
+polygon = PackedVector2Array(0, 0, 0, 32, 32, 0)
+
+[node name="Mesh" type="Polygon2D" parent="2 0"]
+color = Color(0, 1, 0, 0.501961)
+polygon = PackedVector2Array(0, 0, 0, 32, 32, 0)
+
+[node name="34 0" type="CollisionPolygon2D" parent="."]
+position = Vector2(64, 0)
+polygon = PackedVector2Array(0, 0, 0, 32, 32, 32, 32, 0)
+
+[node name="Mesh" type="Polygon2D" parent="34 0"]
+color = Color(0, 0, 1, 0.501961)
+polygon = PackedVector2Array(0, 0, 0, 32, 32, 32, 32, 0)
