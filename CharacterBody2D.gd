@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-@export var speed: float = 30.0
+@export var speed: float = 50.0
 var dtbf:          float
-var gravity:       float = 800.
-var jump_impulse:  float = -400.
+var gravity:       float = 1000.
+var jump_impulse:  float = -500.
 
 
 func _ready():

@@ -27,8 +27,8 @@ func _enter_tree():
 	texture.color_ramp = gradiant
 	texture.generate_mipmaps = false
 	texture.noise = noise
-	texture.width = 4096
-	texture.width = 4096
+	texture.width = 2048
+	texture.width = 2048
 	await texture.changed
 	image = texture.get_image()
 	print("Map generation: 2/3: Collision generation")

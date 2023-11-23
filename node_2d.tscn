@@ -8,11 +8,11 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6po4x"]
 shader = ExtResource("3_hgyc6")
-shader_parameter/motion_blur_effect_enabled = false
+shader_parameter/motion_blur_effect_enabled = true
 shader_parameter/motion_blur_quality = 8.0
 shader_parameter/motion_blur_boost = 1.0
 shader_parameter/velocity = Vector2(0, 0)
-shader_parameter/distortion_effect_enabled = false
+shader_parameter/distortion_effect_enabled = true
 shader_parameter/distortion_strength = 32.0
 shader_parameter/distortion_power = 8.0
 
@@ -22,12 +22,12 @@ shader_parameter/distortion_power = 8.0
 radius = 6.0
 height = 12.0
 
-[sub_resource type="Gradient" id="Gradient_wtypc"]
+[sub_resource type="Gradient" id="Gradient_neluf"]
 offsets = PackedFloat32Array(0.425641)
 colors = PackedColorArray(0, 1, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_aoaln"]
-gradient = SubResource("Gradient_wtypc")
+gradient = SubResource("Gradient_neluf")
 width = 1
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ofr4"]
@@ -38,14 +38,13 @@ height = 12.0
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 texture_filter = 3
-scale = Vector2(8, 8)
+scale = Vector2(32, 8)
 script = ExtResource("2_3876p")
 noise = ExtResource("3_rmeff")
 gradiant = ExtResource("4_5kivw")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 texture_filter = 1
-position = Vector2(0, 128)
 floor_constant_speed = true
 floor_block_on_wall = false
 floor_snap_length = 16.0

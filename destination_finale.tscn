@@ -1,0 +1,176 @@
+[gd_scene load_steps=13 format=3 uid="uid://r50nqmxa4rtj"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_vry68"]
+[ext_resource type="Shader" path="res://shader2d1.gdshader" id="2_hhh7g"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_yv25u"]
+radius = 1920.0
+height = 512.0
+radial_segments = 4
+rings = 1
+is_hemisphere = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wnx0"]
+size = Vector2(3840, 512)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6hct3"]
+size = Vector3(128, 128, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8d4g8"]
+size = Vector2(128, 128)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4e6hn"]
+shader = ExtResource("2_hhh7g")
+shader_parameter/motion_blur_effect_enabled = true
+shader_parameter/motion_blur_quality = 8.0
+shader_parameter/motion_blur_boost = 1.0
+shader_parameter/velocity = Vector2(0, 0)
+shader_parameter/distortion_effect_enabled = true
+shader_parameter/distortion_strength = 32.0
+shader_parameter/distortion_power = 8.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_h3ch2"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_e08f1"]
+radius = 6.0
+height = 12.0
+
+[sub_resource type="Gradient" id="Gradient_wtypc"]
+offsets = PackedFloat32Array(0.425641)
+colors = PackedColorArray(0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_t34qm"]
+gradient = SubResource("Gradient_wtypc")
+width = 1
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_po0vt"]
+radius = 6.0
+height = 12.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Node2D/StaticBody2D"]
+mesh = SubResource("SphereMesh_yv25u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(0, 256)
+shape = SubResource("RectangleShape2D_4wnx0")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Node2D"]
+position = Vector2(1440, -128)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Node2D/StaticBody2D2"]
+mesh = SubResource("BoxMesh_6hct3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_8d4g8")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Node2D"]
+position = Vector2(1184, -64)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Node2D/StaticBody2D3"]
+mesh = SubResource("BoxMesh_6hct3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D3"]
+shape = SubResource("RectangleShape2D_8d4g8")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Node2D"]
+position = Vector2(1440, -256)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Node2D/StaticBody2D4"]
+mesh = SubResource("BoxMesh_6hct3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D4"]
+shape = SubResource("RectangleShape2D_8d4g8")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Node2D"]
+position = Vector2(1568, -192)
+rotation = -0.785398
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Node2D/StaticBody2D5"]
+mesh = SubResource("BoxMesh_6hct3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D5"]
+shape = SubResource("RectangleShape2D_8d4g8")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Node2D"]
+position = Vector2(1696, -64)
+rotation = -0.785398
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Node2D/StaticBody2D6"]
+mesh = SubResource("BoxMesh_6hct3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D6"]
+shape = SubResource("RectangleShape2D_8d4g8")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="Node2D"]
+position = Vector2(1120, 0)
+rotation = -0.785398
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Node2D/StaticBody2D7"]
+mesh = SubResource("BoxMesh_6hct3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D7"]
+shape = SubResource("RectangleShape2D_8d4g8")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="Node2D"]
+position = Vector2(1248, -128)
+rotation = -0.785398
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Node2D/StaticBody2D8"]
+mesh = SubResource("BoxMesh_6hct3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D8"]
+shape = SubResource("RectangleShape2D_8d4g8")
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="Node2D"]
+position = Vector2(1184, -384)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Node2D/StaticBody2D9"]
+mesh = SubResource("BoxMesh_6hct3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D9"]
+shape = SubResource("RectangleShape2D_8d4g8")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+texture_filter = 1
+position = Vector2(-256, -80)
+floor_constant_speed = true
+floor_block_on_wall = false
+floor_snap_length = 16.0
+script = ExtResource("1_vry68")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+ignore_rotation = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="CharacterBody2D/Camera2D"]
+material = SubResource("ShaderMaterial_4e6hn")
+scale = Vector2(1920, 1080)
+texture = SubResource("CanvasTexture_h3ch2")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CharacterBody2D"]
+mesh = SubResource("SphereMesh_e08f1")
+texture = SubResource("GradientTexture1D_t34qm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_po0vt")
+
+[node name="Label" type="RichTextLabel" parent="CharacterBody2D"]
+offset_right = 47.0
+offset_bottom = 23.0
+bbcode_enabled = true
+text = "[color=#00FF0088]Name[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="R" type="RayCast2D" parent="CharacterBody2D"]
+target_position = Vector2(16, 0)
+
+[node name="L" type="RayCast2D" parent="CharacterBody2D"]
+target_position = Vector2(-16, 0)
