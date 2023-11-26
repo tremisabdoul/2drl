@@ -5,6 +5,7 @@ extends Sprite2D
 @export var gradiant: Gradient
 
 func _enter_tree():
+	var start_time = Time.get_unix_time_from_system()
 	var shapes = [
 		PackedVector2Array([Vector2(-.5, -.5), Vector2(-.5, .5), Vector2(0, 0)]), 
 		PackedVector2Array([Vector2(-.5, -.5), Vector2(-.5, .5), Vector2(.5, -.5)]), 
@@ -27,7 +28,7 @@ func _enter_tree():
 	texture.color_ramp = gradiant
 	texture.generate_mipmaps = false
 	texture.noise = noise
-	texture.width = 2048
+	texture.height = 128
 	texture.width = 2048
 	await texture.changed
 	image = texture.get_image()
@@ -36,7 +37,7 @@ func _enter_tree():
 	get_child(0).name = "Body"
 	for y in image.get_height():
 		y += .5
-		print("Map generation: 2/3: (Collisions) ", (y/image.get_height())*100, "%")
+		#print("Map generation: 2/3: (Collisions) ", ((y+.5)/image.get_height())*100, "%")
 		for x in image.get_width():
 			x += .5
 			if is_solid(image.get_pixel(x, y)):
@@ -61,6 +62,7 @@ func _enter_tree():
 					$Body.add_child(p)
 	#texture = null
 	print("Map generation: 3/3")
+	print("Map generation duration: ", Time.get_unix_time_from_system() - start_time, "s")
 
 
 func is_solid(fragment: Color):

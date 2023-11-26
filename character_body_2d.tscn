@@ -1,0 +1,132 @@
+[gd_scene load_steps=15 format=3 uid="uid://deiqrenjn4fu0"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_0k4ba"]
+[ext_resource type="Shader" path="res://shader2d1.gdshader" id="2_d5cj5"]
+
+[sub_resource type="Gradient" id="Gradient_23ur5"]
+colors = PackedColorArray(1, 1, 1, 0.145098, 0.619608, 0.470588, 0.45098, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l2uk8"]
+gradient = SubResource("Gradient_23ur5")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="Curve" id="Curve_n8sly"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.144144, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6po4x"]
+shader = ExtResource("2_d5cj5")
+shader_parameter/enabled = false
+shader_parameter/motion_blur_effect_enabled = true
+shader_parameter/motion_blur_quality = 8.0
+shader_parameter/motion_blur_boost = 2.0
+shader_parameter/velocity = Vector2(0, 0)
+shader_parameter/distortion_effect_enabled = true
+shader_parameter/distortion_strength = 32.0
+shader_parameter/distortion_power = 8.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_h88gy"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_hwwm0"]
+radius = 6.0
+height = 12.0
+
+[sub_resource type="Gradient" id="Gradient_neluf"]
+offsets = PackedFloat32Array(0.425641)
+colors = PackedColorArray(0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aoaln"]
+gradient = SubResource("Gradient_neluf")
+width = 1
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ofr4"]
+radius = 6.0
+height = 12.0
+
+[sub_resource type="SystemFont" id="SystemFont_dykef"]
+font_names = PackedStringArray("Monospace")
+subpixel_positioning = 0
+multichannel_signed_distance_field = true
+msdf_size = 64
+
+[sub_resource type="Gradient" id="Gradient_p1spm"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.7, 0.8, 1)
+colors = PackedColorArray(0, 1, 0, 0, 0, 0, 0, 0.501961, 0, 1, 0, 1, 0, 1, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j407f"]
+gradient = SubResource("Gradient_p1spm")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0.4)
+metadata/_snap_enabled = true
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+texture_filter = 1
+floor_constant_speed = true
+floor_block_on_wall = false
+floor_snap_length = 16.0
+script = ExtResource("1_0k4ba")
+
+[node name="SlideParticles" type="CPUParticles2D" parent="."]
+emitting = false
+lifetime = 1.5
+texture = SubResource("GradientTexture2D_l2uk8")
+direction = Vector2(-1, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 32.0
+damping_min = 32.0
+damping_max = 32.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_n8sly")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="Camera2D"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_6po4x")
+scale = Vector2(1920, 1080)
+texture = SubResource("CanvasTexture_h88gy")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("SphereMesh_hwwm0")
+texture = SubResource("GradientTexture1D_aoaln")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_4ofr4")
+
+[node name="Label" type="RichTextLabel" parent="."]
+offset_right = 39.0
+offset_bottom = 19.0
+theme_override_fonts/normal_font = SubResource("SystemFont_dykef")
+bbcode_enabled = true
+text = "[color=#00FF0088]Name[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="ColorRect" type="ColorRect" parent="Label"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 24.0
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Cursor" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("GradientTexture2D_j407f")
+
+[node name="R" type="RayCast2D" parent="."]
+target_position = Vector2(16, 0)
+
+[node name="L" type="RayCast2D" parent="."]
+target_position = Vector2(-16, 0)

@@ -1,82 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://clnh2umnoti5w"]
+[gd_scene load_steps=5 format=3 uid="uid://clnh2umnoti5w"]
 
-[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_07k3p"]
 [ext_resource type="Script" path="res://Sprite2D2.gd" id="2_3876p"]
-[ext_resource type="Shader" path="res://shader2d1.gdshader" id="3_hgyc6"]
 [ext_resource type="FastNoiseLite" uid="uid://co6shoxnaapq0" path="res://noise.tres" id="3_rmeff"]
 [ext_resource type="Gradient" uid="uid://c4ofpe3d7nvw4" path="res://noise_ramp.tres" id="4_5kivw"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6po4x"]
-shader = ExtResource("3_hgyc6")
-shader_parameter/motion_blur_effect_enabled = true
-shader_parameter/motion_blur_quality = 8.0
-shader_parameter/motion_blur_boost = 1.0
-shader_parameter/velocity = Vector2(0, 0)
-shader_parameter/distortion_effect_enabled = true
-shader_parameter/distortion_strength = 32.0
-shader_parameter/distortion_power = 8.0
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_h88gy"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_hwwm0"]
-radius = 6.0
-height = 12.0
-
-[sub_resource type="Gradient" id="Gradient_neluf"]
-offsets = PackedFloat32Array(0.425641)
-colors = PackedColorArray(0, 1, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_aoaln"]
-gradient = SubResource("Gradient_neluf")
-width = 1
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ofr4"]
-radius = 6.0
-height = 12.0
+[ext_resource type="PackedScene" uid="uid://deiqrenjn4fu0" path="res://character_body_2d.tscn" id="4_eifcy"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 texture_filter = 3
-scale = Vector2(32, 8)
+scale = Vector2(8, 8)
 script = ExtResource("2_3876p")
 noise = ExtResource("3_rmeff")
 gradiant = ExtResource("4_5kivw")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-texture_filter = 1
-floor_constant_speed = true
-floor_block_on_wall = false
-floor_snap_length = 16.0
-script = ExtResource("1_07k3p")
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-ignore_rotation = false
-
-[node name="Sprite2D4" type="Sprite2D" parent="CharacterBody2D/Camera2D"]
-material = SubResource("ShaderMaterial_6po4x")
-scale = Vector2(1920, 1080)
-texture = SubResource("CanvasTexture_h88gy")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="CharacterBody2D"]
-mesh = SubResource("SphereMesh_hwwm0")
-texture = SubResource("GradientTexture1D_aoaln")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CapsuleShape2D_4ofr4")
-
-[node name="Label" type="RichTextLabel" parent="CharacterBody2D"]
-offset_right = 47.0
-offset_bottom = 23.0
-bbcode_enabled = true
-text = "[color=#00FF0088]Name[/color]"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-shortcut_keys_enabled = false
-
-[node name="R" type="RayCast2D" parent="CharacterBody2D"]
-target_position = Vector2(16, 0)
-
-[node name="L" type="RayCast2D" parent="CharacterBody2D"]
-target_position = Vector2(-16, 0)
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_eifcy")]
