@@ -1,0 +1,24 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://dcfna6427uqrb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pi22f"]
+
+[sub_resource type="Sky" id="Sky_gf7pv"]
+sky_material = SubResource("ProceduralSkyMaterial_pi22f")
+
+[resource]
+background_mode = 3
+sky = SubResource("Sky_gf7pv")
+ambient_light_source = 1
+reflected_light_source = 1
+sdfgi_enabled = true
+sdfgi_read_sky_light = false
+sdfgi_cascades = 1
+sdfgi_min_cell_size = 0.25
+glow_blend_mode = 0
+fog_light_color = Color(0.85098, 0.909804, 1, 1)
+fog_light_energy = 3.0
+fog_density = 0.0
+volumetric_fog_density = 0.15
+volumetric_fog_length = 10.0
+volumetric_fog_sky_affect = 0.0
+volumetric_fog_temporal_reprojection_enabled = false

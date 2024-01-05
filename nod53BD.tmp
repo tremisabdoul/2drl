@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://clnh2umnoti5w"]
+
+[ext_resource type="Script" path="res://Sprite2D2.gd" id="2_3876p"]
+[ext_resource type="FastNoiseLite" uid="uid://co6shoxnaapq0" path="res://noise.tres" id="3_rmeff"]
+[ext_resource type="Gradient" uid="uid://c4ofpe3d7nvw4" path="res://noise_ramp.tres" id="4_5kivw"]
+[ext_resource type="PackedScene" uid="uid://deiqrenjn4fu0" path="res://character_body_2d.tscn" id="4_eifcy"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 3
+scale = Vector2(8, 8)
+script = ExtResource("2_3876p")
+noise = ExtResource("3_rmeff")
+gradiant = ExtResource("4_5kivw")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_eifcy")]

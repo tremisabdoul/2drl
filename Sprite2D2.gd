@@ -1,7 +1,6 @@
 extends Sprite2D
 
 @export var noise: Noise
-@export var seed: int
 @export var gradiant: Gradient
 
 func _enter_tree():
@@ -19,6 +18,7 @@ func _enter_tree():
 		[1, 3], [2, 3], [3, 0], [3, 0], [2, 2], [3, 0], [3, 0], [0, 0]
 	]
 	var image = null
+	var IMAGE = null
 	var dirs = [Vector2.LEFT, Vector2.UP, Vector2.RIGHT, Vector2.DOWN]
 	var type: int
 	var polygon: CollisionPolygon2D
@@ -28,13 +28,17 @@ func _enter_tree():
 	texture.color_ramp = gradiant
 	texture.generate_mipmaps = false
 	texture.noise = noise
-	texture.height = 128
-	texture.width = 2048
+	texture.height = 512
+	texture.width = 512
 	await texture.changed
-	image = texture.get_image()
+	image = Image.create(texture.width, texture.height, false, Image.FORMAT_RGBA8)
+	IMAGE = texture.get_image()
 	print("Map generation: 2/3: Collision generation")
 	add_child(StaticBody2D.new())
 	get_child(0).name = "Body"
+	for y in image.get_height():
+		for x in image.get_width():
+			image.set_pixel(x, y-.5, IMAGE.get_pixel(int(x/2), y-.5))
 	for y in image.get_height():
 		y += .5
 		#print("Map generation: 2/3: (Collisions) ", ((y+.5)/image.get_height())*100, "%")
@@ -60,7 +64,7 @@ func _enter_tree():
 					p.rotate(polygons[type][1]*PI/2)
 					p.position = Vector2(x, y) - Vector2(image.get_size())/2
 					$Body.add_child(p)
-	#texture = null
+	texture = ImageTexture.create_from_image(image)
 	print("Map generation: 3/3")
 	print("Map generation duration: ", Time.get_unix_time_from_system() - start_time, "s")
 

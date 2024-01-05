@@ -1,0 +1,314 @@
+[gd_scene load_steps=24 format=3 uid="uid://dxirsr57qapjc"]
+
+[ext_resource type="Material" uid="uid://d2lonxv21adsr" path="res://new_standard_material_3d.tres" id="1_q6oie"]
+[ext_resource type="Texture2D" uid="uid://cc7yyjgqybcgv" path="res://Background (5).jpg" id="2_70u3o"]
+[ext_resource type="Environment" uid="uid://dcfna6427uqrb" path="res://node_3d.tres" id="2_kv2yr"]
+[ext_resource type="Script" path="res://AnimationPlayer.gd" id="4_usdce"]
+
+[sub_resource type="Animation" id="Animation_bto0v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-4.5, 2.5, 4.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.174533, -0.959931, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jh4y3"]
+resource_name = "new_animation"
+length = 180.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 180, 360),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-4.5, 2.5, 4.5), Vector3(0, 2.95, 2.195), Vector3(0, 1, -4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 180, 360),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.174533, -0.959931, 0), Vector3(-0.349066, -1.5708, 0), Vector3(0.174533, -2.44346, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c0sm6"]
+_data = {
+"RESET": SubResource("Animation_bto0v"),
+"new_animation": SubResource("Animation_jh4y3")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_ht33m"]
+lightmap_size_hint = Vector2i(34, 71)
+size = Vector3(5, 4, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_thj2k"]
+size = Vector3(3, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1pmgq"]
+size = Vector3(1, 4, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q23vt"]
+size = Vector3(10, 1, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_45sut"]
+size = Vector3(10, 1, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nhgy0"]
+size = Vector3(3, 3, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yj4ct"]
+size = Vector3(3, 3, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_elw2i"]
+size = Vector3(3, 1, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_klyd8"]
+size = Vector3(3, 1, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vjcy5"]
+size = Vector3(3, 1.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7600n"]
+size = Vector3(10, 4, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3aewa"]
+size = Vector3(4, 4, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cn1un"]
+size = Vector3(1, 4, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g3xdp"]
+size = Vector3(1, 1, 2)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rnqlr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d35sp"]
+albedo_texture = ExtResource("2_70u3o")
+metallic = 0.1
+roughness = 0.1
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.9, 2.6, 3.1)
+pixel_size = 0.015
+alpha_cut = 1
+outline_modulate = Color(0, 0, 0, 0)
+text = "Tremisabdoul
+-"
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.9, 1.6, 3.1)
+pixel_size = 0.0075
+alpha_cut = 1
+outline_modulate = Color(0, 0, 0, 0)
+text = "Surement le nom de la 
+musique qui va etre écrite"
+outline_size = 0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.5, 0.296198, -0.813798, 0, 0.939693, 0.34202, 0.866025, 0.17101, -0.469847, 0, 0, 0)
+light_color = Color(1, 0, 0, 1)
+shadow_enabled = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.961339, 0.208857, -0.179462, 0, 0.651715, 0.758464, 0.275369, -0.729141, 0.626518, 0, 0, 0)
+light_color = Color(0, 1, 0, 1)
+shadow_enabled = true
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.401625, -0.22154, 0.888604, -0.250749, 0.906619, 0.339363, -0.880808, -0.359113, 0.30857, 0, 0, 0)
+light_color = Color(0, 0, 1, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_kv2yr")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.573577, 0.142244, -0.806708, 0, 0.984808, 0.173648, 0.819152, -0.0996006, 0.564863, -4.5, 2.5, 4.5)
+far = 128.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+speed_scale = 64.0
+method_call_mode = 1
+movie_quit_on_finish = true
+libraries = {
+"": SubResource("AnimationLibrary_c0sm6")
+}
+script = ExtResource("4_usdce")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, 5.5)
+mesh = SubResource("BoxMesh_ht33m")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D7" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 3.5, 5.5)
+mesh = SubResource("BoxMesh_thj2k")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D9" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2, 5.5)
+mesh = SubResource("BoxMesh_1pmgq")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D10" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 2, 2.5)
+mesh = SubResource("BoxMesh_1pmgq")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D11" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 2, -1.5)
+mesh = SubResource("BoxMesh_1pmgq")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D12" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+mesh = SubResource("BoxMesh_q23vt")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_45sut")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D13" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1.5, -0.5)
+mesh = SubResource("BoxMesh_nhgy0")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D14" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1.5, -3.5)
+mesh = SubResource("BoxMesh_yj4ct")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D15" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 3.5, -2)
+mesh = SubResource("BoxMesh_elw2i")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D16" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, -0.5, -2)
+mesh = SubResource("BoxMesh_klyd8")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D18" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 1.5, -0.5)
+mesh = SubResource("BoxMesh_nhgy0")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D19" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 1.5, -3.5)
+mesh = SubResource("BoxMesh_yj4ct")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D20" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 3.5, -2)
+mesh = SubResource("BoxMesh_elw2i")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D21" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, -0.5, -2)
+mesh = SubResource("BoxMesh_klyd8")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D22" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1.5, -0.5)
+mesh = SubResource("BoxMesh_nhgy0")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D23" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1.5, -3.5)
+mesh = SubResource("BoxMesh_yj4ct")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D24" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 3.5, -2)
+mesh = SubResource("BoxMesh_elw2i")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D25" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -0.5, -2)
+mesh = SubResource("BoxMesh_klyd8")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D26" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 1.5, -0.5)
+mesh = SubResource("BoxMesh_nhgy0")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D27" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 1.5, -3.5)
+mesh = SubResource("BoxMesh_yj4ct")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D28" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 3.5, -2)
+mesh = SubResource("BoxMesh_elw2i")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D29" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, -0.5, -2)
+mesh = SubResource("BoxMesh_klyd8")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D8" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.75, 5.5)
+mesh = SubResource("BoxMesh_vjcy5")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -5.5)
+mesh = SubResource("BoxMesh_7600n")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, -4)
+mesh = SubResource("BoxMesh_3aewa")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2, 2)
+mesh = SubResource("BoxMesh_cn1un")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D6" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 3.5, -2)
+mesh = SubResource("BoxMesh_g3xdp")
+material = ExtResource("1_q6oie")
+
+[node name="CSGMesh3D17" type="CSGMesh3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 3.9, 2.2, 0.4)
+mesh = SubResource("PlaneMesh_rnqlr")
+material = SubResource("StandardMaterial3D_d35sp")

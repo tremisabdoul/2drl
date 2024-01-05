@@ -19,8 +19,12 @@ func _ready():
 
 
 func _process(delta):
-	if position.y > 1024:
-		position.y = -1024
+	if position.y > (512/2 * 8):
+		position.y -= 512 * 8
+	if position.x > (512/2 * 8):
+		position.x -= 512 * 8
+	if position.x < (-512/2 * 8):
+		position.x += 512 * 8
 	var direction: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if Input.is_key_pressed(KEY_SHIFT):
 		dtbf = delta_time_based_factor(pow(2, 20), delta)
